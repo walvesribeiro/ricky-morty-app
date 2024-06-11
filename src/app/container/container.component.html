@@ -1,0 +1,12 @@
+<div class="page__header">
+    <ng-content select="h1"></ng-content>
+    <ng-content select=".search"></ng-content>
+</div>
+
+<div class="page__body">
+    <app-card *ngFor="let item of (charactersList$ | async)" [card]="item" (click)="toggleFavorite(item);"></app-card>
+    <ng-content select="not-found"></ng-content>
+
+</div>
+
+<ng-content selecte="pagination"></ng-content>

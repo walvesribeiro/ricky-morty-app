@@ -1,0 +1,8 @@
+<div class="card">
+    <span class="favorite-badge" [ngClass]="{'favorite': card.favorite}">
+        <img loading="lazy" [src]="card.favorite? 'assets/icons/heart-filled.svg': 'assets/icons/heart-outline.svg'" />
+    </span>
+    <img loading="lazy" [src]="card.image" [alt]="card.name" [srcset]="card.image">
+    <h2>{{card.name}}</h2>
+    <p>{{card.species}}</p>
+</div>

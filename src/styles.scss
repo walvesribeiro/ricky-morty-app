@@ -1,1 +1,87 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Poppins&display=swap');
+
+:root {
+    --color-core-foreground: #0A0A0A;
+    --color-core-border: #3D3D3D;
+    --color-core-background: #1F1F1F;
+
+    --measure-radius-s: 12px;
+    --measure-radius-circle: 100px;
+
+    --measure-spacing-xxxl: 48px;
+    --measure-spacing-l: 24px;
+    --measure-spacing-m: 16px;
+    --measure-spacing-s: 12px;
+
+    --measure-sizing-huge: 64px;
+
+    --color-neutral-content: #A4A4A4;
+    --color-neutral-content-higher: #F2F2F2;
+    --color-neutral-border-high: #5D5D5D;
+}
+
+:root {
+    --highlight: #D6DC22;
+    --morty-skin: #F2CFB3;
+    --morty-mouth: #61302E;
+    --outline-width: 0.25em;
+    --morty-top: #F0ED81;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.creepster-regular {
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--color-core-background);
+    margin: 0;
+}
+
+h1 {
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+:root .content-grid {
+    --grid-padding-size: 10rem;
+    --grid-max-container-size: 740px;
+    display: grid;
+    grid-template-columns: [full-width-start breakout-left-start] minmax(1rem, 1fr) [content-start breakout-right-start] min(100% - var(--grid-padding-size), var(--grid-max-container-size)) [content-end breakout-left-end] minmax(1rem, 1fr) [breakout-right-end full-width-end];
+}
+
+@media (426px <=width <=1023px) {
+    :root .content-grid {
+        --grid-padding-size: 80px
+    }
+}
+
+@media (width <=425px) {
+    :root .content-grid {
+        --grid-padding-size: 48px
+    }
+}
+
+:root .content-grid>*,
+:root .full-width>* {
+    grid-column: content
+}
+
+:root .content-grid>.full-width {
+    grid-column: full-width;
+    display: grid;
+    grid-template-columns: inherit
+}

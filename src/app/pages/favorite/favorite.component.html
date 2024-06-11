@@ -1,0 +1,15 @@
+<app-container [charactersList$]="favorites$">
+    <h1>Favoritos</h1>
+
+    <div not-found *ngIf="(bagde$ | async) === 0">
+        <div class="empty">
+            <h2>Parece que você ainda não tem favoritos</h2>
+            <p>Volte à página inicial e escolha os melhores para você.</p>
+
+            <button type="button" (click)="backToStart()">
+                Voltar ao início
+            </button>
+
+        </div>
+    </div>
+</app-container>
