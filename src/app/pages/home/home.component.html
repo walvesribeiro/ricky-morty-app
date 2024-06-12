@@ -1,0 +1,35 @@
+<app-container [charactersList$]="homeCharactersList$" [searchCharacterName]="search">
+    <h1>Inicio</h1>
+    <div class="search">
+        <input name="Pesquisar" [formControl]="search" placeholder="" />
+        <label>
+            Pesquisar
+        </label>
+    </div>
+
+    <div not-found *ngIf="(onError$ | async) as erro">
+        <div class="empty">
+            <h2>Nada foi encontrado</h2>
+            <p>Tente realizar uma nova busca</p>
+        </div>
+    </div>
+
+    <div pagination *ngIf="!(onError$ | async) && (pagination$ | async) as page">
+        <!-- {{page | json}} -->
+        <div class="pagination-div">
+            <ul class="pagination">
+                <li *ngIf="page.prev">
+                    <button class="btn" type="button" (click)="changePage(page.prev, page.pages)">«</button>
+                </li>
+                <li>
+                    <span class="btn btn-small">
+                        {{current}} / {{page.pages}}
+                    </span>
+                </li>
+                <li *ngIf="page.next">
+                    <button type="button" class="btn" (click)="changePage(page.next, page.pages)">»</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</app-container>

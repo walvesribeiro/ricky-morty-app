@@ -1,0 +1,24 @@
+<header>
+    <a [routerLink]="[logo.url]">
+        <img [src]="logo.image" [alt]="logo.alt" [srcset]="logo.image">
+    </a>
+
+    <nav>
+        <ul>
+            <ng-container *ngFor="let item of menuOptions">
+                <a class="menu-item" [routerLink]="[item.url]" routerLinkActive="active-menu">
+                    <img class="menu-icon" [src]="item.icon" />
+                    <span class="title">
+                        {{item.urlName}}
+                    </span>
+                    <span class="badge" *ngIf="item?.badge">
+                        <span>
+                            {{(item?.badge | async)}}
+                        </span>
+                    </span>
+                </a>
+            </ng-container>
+
+        </ul>
+    </nav>
+</header>

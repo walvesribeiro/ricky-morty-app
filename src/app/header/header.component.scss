@@ -1,0 +1,105 @@
+header {
+    background-color: var(--color-core-foreground);
+    display: flex;
+    height: var(--measure-sizing-huge);
+    padding-inline: var(--measure-spacing-l);
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-core-border, #3D3D3D);
+
+    nav {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ul {
+        height: 40px;
+        display: flex;
+        padding-inline: 0px;
+    }
+}
+
+.menu-item {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-auto-flow: column;
+    gap: 1%;
+    border: 1px solid var(--color-core-border, #3D3D3D);
+    height: 40px;
+    text-decoration: none;
+    color: var(--color-neutral-content, #A4A4A4);
+
+    &:first-of-type {
+        border-start-start-radius: var(--measure-radius-s);
+        border-end-start-radius: var(--measure-radius-s);
+    }
+
+    &:last-of-type {
+        border-end-end-radius: var(--measure-radius-s);
+        border-start-end-radius: var(--measure-radius-s);
+    }
+
+    .title {
+        padding-inline: 12px;
+    }
+
+    .menu-icon {
+        filter: invert(.5);
+        padding-inline-start: 12px;
+    }
+}
+
+.active-menu {
+    background: var(--color-neutral-surface, #FFFFFF);
+    color: var(--color-neutral-content-onSource, #0A0A0A);
+
+    &>.menu-icon {
+        filter: invert(0);
+    }
+}
+
+.badge {
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid var(--color-core-border, #3D3D3D);
+    margin-inline-end: 16px;
+    background: var(--color-neutral-surface, #FFFFFF);
+    color: var(--color-neutral-content-onSource, #0A0A0A);
+
+    font-family: Poppins;
+    font-size: 1.2ch;
+    font-weight: 700;
+    line-height: 19.6px;
+    text-align: center;
+
+    span {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+    }
+}
+
+
+@media (width<=465px) {
+    .title {
+        display: none;
+    }
+
+    .badge {
+        margin-inline-end: 0px;
+    }
+
+    .menu-icon {
+        padding-inline-start: 0px;
+    }
+
+    .menu-item {
+        display: flex;
+        width: min(64px);
+        align-items: center;
+        justify-content: center;
+        gap: 10%;
+    }
+}
