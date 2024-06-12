@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
+
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
@@ -21,6 +22,8 @@ export class NotFoundComponent {
     let pupil = svg.nativeElement.querySelector('.pupil');
 
     let pointerCursor = this.translateDOMCordinatesToSVG(mouseEvent, svg);
+
+
     let { pointerCenter, radiusEyeball, radiusPupil } = this.getCircleCenterAndRadius(eyeball, pupil);
     let angle = this.getAngle({ pointerCenter, pointerCursor });
     let distance = this.getDistanceBeetweenCursorAndEyeball({ pointerCenter, pointerCursor });
