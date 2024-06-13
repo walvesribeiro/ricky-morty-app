@@ -2,6 +2,8 @@ name: CI e CD
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ "main" ]
 
 env:
   docker_image_name: walvesribeiro/ricky-morty-app:${{github.run_number}}
