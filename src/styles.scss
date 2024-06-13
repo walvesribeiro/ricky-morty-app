@@ -78,12 +78,12 @@ h1 {
     }
 }
 
-:root .content-grid>*,
-:root .full-width>* {
+.content-grid>*,
+.full-width>* {
     grid-column: content
 }
 
-:root .content-grid>.full-width {
+.content-grid>.full-width {
     grid-column: full-width;
     display: grid;
     grid-template-columns: inherit
