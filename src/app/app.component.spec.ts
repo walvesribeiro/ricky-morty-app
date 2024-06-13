@@ -1,16 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NgxsModule, Store } from '@ngxs/store';
+import { of } from 'rxjs';
 import { AppComponent } from './app.component';
+import { IMenuOptions } from './header/header.component';
+import { HeaderModule } from './header/header.module';
+import { FavoritesState } from './store/favorites/favorites.state';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        NgxsModule.forRoot([FavoritesState]),
+        RouterTestingModule,
+        HeaderModule,
+
       ],
       declarations: [
         AppComponent
       ],
+      // providers: [provideStore([FavoritesState])]
     }).compileComponents();
   });
 
@@ -20,16 +29,27 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ngxs-characters-app'`, () => {
+  it(`should create the menuOptions`, () => {
+    const store: Store = TestBed.inject(Store);
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngxs-characters-app');
+    let badge$ = of(0)
+    let menuOptions: IMenuOptions[] = [
+      {
+        icon: 'assets/icons/house-filled.svg',
+        url: 'home',
+        urlName: 'Início'
+      },
+      {
+        icon: 'assets/icons/heart-filled.svg',
+        url: '/favorites',
+        urlName: 'Favoritos',
+        badge: badge$
+      },
+    ];
+
+    expect(app.menuOptions.values).toEqual(menuOptions.values);
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ngxs-characters-app');
-  });
 });
+

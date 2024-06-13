@@ -1,4 +1,4 @@
-import { ICharacter, IPageResponse } from "../../character.interface";
+import { IPageResponse } from "../../character.interface";
 
 export namespace CharactersAction {
 
@@ -10,10 +10,6 @@ export namespace CharactersAction {
   export class UpdateCharacterList {
     static readonly type = '[Characters] Update list item';
     constructor(public payload: IPageResponse) { }
-  }
-  export class RemoveCharacter {
-    static readonly type = '[Characters] Remove item';
-    constructor(public payload: string) { }
   }
 
   export class ErrorCharacter {

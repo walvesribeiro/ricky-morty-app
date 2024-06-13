@@ -1,13 +1,13 @@
 
-import { debounceTime } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 
 
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
-import { ICharacter } from '../character.interface';
+import { Observable } from 'rxjs';
 import { CharactersFacade } from '../character.facade';
+import { ICharacter } from '../character.interface';
 import { FavoriteFacade } from '../favorite.facade';
 
 
@@ -20,7 +20,7 @@ import { FavoriteFacade } from '../favorite.facade';
 export class ContainerComponent implements OnInit {
   @Input() searchCharacterName?: FormControl;
   @Input() charactersList$!: Observable<ICharacter[]>;
-  private readonly debounceTimeMiliseconds = 500;
+  private readonly debounceTimeMiliseconds = 1000;
 
 
   constructor(
@@ -30,7 +30,8 @@ export class ContainerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.searchCharacterName?.valueChanges.pipe(
-      debounceTime(this.debounceTimeMiliseconds)
+      debounceTime(this.debounceTimeMiliseconds),
+      distinctUntilChanged()
     ).subscribe(
       () => this.getCharacterByName()
     )

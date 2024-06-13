@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
 import { CharactersService } from "./characters.service";
 
-import { Observable, catchError, map, of, switchMap, tap } from "rxjs";
-import { IPageResponse, ICharacter, IPageInfo } from "./character.interface";
+import { Dispatch } from "@ngxs-labs/dispatch-decorator";
+import { Select } from "@ngxs/store";
+import { Observable, catchError, exhaustMap, of } from "rxjs";
+import { ICharacter, IPageInfo } from "./character.interface";
 import { CharactersAction } from "./store/characters/characters.actions";
 import { CharactersState } from "./store/characters/characters.state";
-import { Select } from "@ngxs/store";
-import { Dispatch } from "@ngxs-labs/dispatch-decorator";
-import { PaginationAction } from "./store/pagination/pagination.actions";
 import { PaginationState } from "./store/pagination/pagination.state";
 
 @Injectable()
@@ -27,12 +26,11 @@ export class CharactersFacade {
     @Dispatch()
     getAllCharactersPerPage(props?: string | number) {
         return this.characterSevice.getAllCharactersPerPage(props).pipe(
-            map(
-                (item) => (
+            exhaustMap(
+                async (item) => await (
                     new CharactersAction.UpdateCharacterList(item))
             ),
             catchError(error => {
-                console.log({ erro: error })
                 throw new CharactersAction.ErrorCharacter(error)
             })
         )
@@ -42,8 +40,8 @@ export class CharactersFacade {
     @Dispatch()
     getCharacterByName(name: string) {
         return this.characterSevice.getCharacterByName(name).pipe(
-            map(
-                ({ info, results }) => (
+            exhaustMap(
+                async ({ info, results }) => await (
                     new CharactersAction.UpdateCharacterList({ info, results })),
 
             ),

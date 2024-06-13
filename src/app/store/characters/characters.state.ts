@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext, Selector, Select, Store } from '@ngxs/store';
-import { CharactersAction } from './characters.actions';
-import { ICharacter, IPageResponse } from '../../character.interface';
+import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
+import { ICharacter } from '../../character.interface';
+import { FavoritesState } from '../favorites/favorites.state';
 import { PaginationAction } from '../pagination/pagination.actions';
-import { FavoritesState, FavoritesStateModel } from '../favorites/favorites.state';
-import { Observable, tap } from 'rxjs';
+import { CharactersAction } from './characters.actions';
 
 export class CharactersStateModel {
   public characters!: ICharacter[];
@@ -45,7 +44,7 @@ export class CharactersState {
 
   @Action(CharactersAction.AddCharacter)
   add({ getState, patchState, dispatch }: StateContext<CharactersStateModel>, { payload }: CharactersAction.AddCharacter) {
-    const state = getState();
+    const state = getState().characters;
     const { info, results } = payload;
     const favorites = this.store.selectSnapshot(FavoritesState.favorites)
     results.filter((character) => favorites.filter(
@@ -54,7 +53,8 @@ export class CharactersState {
     dispatch(new PaginationAction(
       info
     ))
-    patchState({ characters: [...state.characters, ...results] });
+
+    patchState({ characters: [...state, ...results] });
   }
 
   @Action(CharactersAction.UpdateCharacterList)
@@ -73,7 +73,6 @@ export class CharactersState {
 
   @Action(CharactersAction.ErrorCharacter)
   error({ getState, setState }: StateContext<ErrorStateModel>, { error }: CharactersAction.ErrorCharacter) {
-    console.log(error, 'da acion')
     setState({ error })
   }
 }

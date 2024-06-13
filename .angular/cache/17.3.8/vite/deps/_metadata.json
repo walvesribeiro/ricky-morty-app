@@ -1,79 +1,79 @@
 {
-  "hash": "770ca690",
+  "hash": "8f159e38",
   "configHash": "c0c63b35",
-  "lockfileHash": "f492494d",
-  "browserHash": "0ef9f77a",
+  "lockfileHash": "70130a3b",
+  "browserHash": "82291fff",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "987f36ce",
+      "fileHash": "54597b7a",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "2da51a02",
+      "fileHash": "c08001b3",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "9d031a57",
+      "fileHash": "442c4b5c",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "ec0b43e8",
+      "fileHash": "3f46217c",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "1756c06e",
+      "fileHash": "95ff68cc",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "7a1e1747",
+      "fileHash": "2784f7fc",
       "needsInterop": false
     },
     "@ngxs-labs/dispatch-decorator": {
       "src": "../../../../../node_modules/@ngxs-labs/dispatch-decorator/fesm2020/ngxs-labs-dispatch-decorator.mjs",
       "file": "@ngxs-labs_dispatch-decorator.js",
-      "fileHash": "e962a1bd",
+      "fileHash": "d638e6f2",
       "needsInterop": false
     },
     "@ngxs/devtools-plugin": {
       "src": "../../../../../node_modules/@ngxs/devtools-plugin/fesm2015/ngxs-devtools-plugin.js",
       "file": "@ngxs_devtools-plugin.js",
-      "fileHash": "265841cf",
+      "fileHash": "087b4145",
       "needsInterop": false
     },
     "@ngxs/logger-plugin": {
       "src": "../../../../../node_modules/@ngxs/logger-plugin/fesm2015/ngxs-logger-plugin.js",
       "file": "@ngxs_logger-plugin.js",
-      "fileHash": "b3416453",
+      "fileHash": "fc82a321",
       "needsInterop": false
     },
     "@ngxs/store": {
       "src": "../../../../../node_modules/@ngxs/store/fesm2015/ngxs-store.js",
       "file": "@ngxs_store.js",
-      "fileHash": "7573397e",
+      "fileHash": "2fdd67ee",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "b1b1f5cf",
+      "fileHash": "ab2a0519",
       "needsInterop": false
     },
     "tslib": {
       "src": "../../../../../node_modules/tslib/tslib.es6.mjs",
       "file": "tslib.js",
-      "fileHash": "d205b1ea",
+      "fileHash": "5a30f3b4",
       "needsInterop": false
     }
   },

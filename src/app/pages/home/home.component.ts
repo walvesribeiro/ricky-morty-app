@@ -27,9 +27,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.search.valueChanges
-      .pipe()
-      .subscribe();
     this.facadeService.getAllCharactersPerPage(1);
   }
 
@@ -57,7 +54,6 @@ export class HomeComponent implements OnInit {
     let props = page.split('?')[1]
 
     this.current = Number(props.match(numberPattern)![0])
-    console.log(props, props.match(numberPattern), this.current)
     this.slicePaginationItem(this.current, pages);
     return this.facadeService.getAllCharactersPerPage(props)
   }
@@ -75,16 +71,6 @@ export class HomeComponent implements OnInit {
         ((this.end - this.start) === 10 ?
           ((this.end < 10) ? pages : this.start + 1) : this.start + 10) : this.end + 1) : this.end;
 
-
-    console.log(
-      (((pages && this.end) < 10) &&
-        (this.end - this.start) <= 10), // pages
-      (this.end > pages), // pages
-      (pages && this.end)
-
-    )
-
-    console.log({ end: this.end, start: this.start }, pages)
   }
 
 
