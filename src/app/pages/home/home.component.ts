@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit {
   }
 
   slicePaginationItem(current: number, pages: number) {
-    const numberPattern = /\d+/g;
     this.start = (Number(current) > 1 && Number(current) < pages)
       ? (this.start > current)
         ? ((pages - this.end) < 10)
