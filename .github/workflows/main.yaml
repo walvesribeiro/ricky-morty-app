@@ -46,8 +46,7 @@ jobs:
       run: npm install
   
     - name: Build e Deploy para GitHub Pages
-      if: success()
       uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
       with:
-        path: docs/${{ github.event.repository.name }}/browser                           
+        path: docs/${{ github.event.repository.name }}                           
         build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/
