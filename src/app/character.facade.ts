@@ -49,11 +49,6 @@ export class CharactersFacade {
                 return of(new CharactersAction.ErrorCharacter({ error }.error))
             },
             )
-
         )
-
-
-
     }
-
 }
