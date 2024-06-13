@@ -67,13 +67,13 @@ h1 {
 }
 
 @media (426px <=width <=1023px) {
-    :root .content-grid {
+    .content-grid {
         --grid-padding-size: 80px
     }
 }
 
 @media (width <=425px) {
-    :root .content-grid {
+    .content-grid {
         --grid-padding-size: 48px
     }
 }

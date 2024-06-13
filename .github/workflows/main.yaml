@@ -52,7 +52,7 @@ jobs:
     
     - name: Deploy to gh pages
       run: |
-        npx angular-cli-ghpages --dir=dist/ricky-morty-app
+        npx angular-cli-ghpages --dir=docs/ricky-morty-app
       env:
         CI: true
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
