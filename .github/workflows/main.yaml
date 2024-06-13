@@ -5,7 +5,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'src/**'
+      - './**'
 env:
   docker_image_name: walvesribeiro/ricky-morty-app:${{github.run_number}}
 jobs:
