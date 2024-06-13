@@ -50,5 +50,5 @@ jobs:
     - name: Build e Deploy para GitHub Pages
       uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
       with:
-        path: docs/${{ github.event.repository.name }}                           
+        path: dist/${{ github.event.repository.name }}/browser
         build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/
