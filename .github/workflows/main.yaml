@@ -2,10 +2,7 @@ name: CI e CD
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
-    paths:
-      - './**'
+
 env:
   docker_image_name: walvesribeiro/ricky-morty-app:${{github.run_number}}
 jobs:
@@ -47,14 +44,10 @@ jobs:
 
     - name: Instalando as Dependencias
       run: npm install
-
-    - name: Build Angular App
-      run: npm run build:prod
-    
-    - name: Deploy para GitHub Pages
+  
+    - name: Build e Deploy para GitHub Pages
       if: success()
-      uses: peaceiris/actions-gh-pages@v3
+      uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/ricky-morty-app
-        enable_jekyll: true
+        path: docs/${{ github.event.repository.name }}/browser                           
+        build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/
