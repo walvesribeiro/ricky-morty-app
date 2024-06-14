@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { ICharacter } from '@interfaces/character.interface';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { ICharacter } from '../../interfaces/character.interface';
 import { FavoritesState } from '../favorites/favorites.state';
 import { PaginationAction } from '../pagination/pagination.actions';
 import { CharactersAction } from './characters.actions';
