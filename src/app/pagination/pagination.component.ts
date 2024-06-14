@@ -1,13 +1,16 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { IPageInfo } from '../character.interface';
 
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss',
+  selector: 'app-pagination',
+  templateUrl: './pagination.component.html',
+  styleUrl: './pagination.component.scss',
 
 })
-export class NotFoundComponent {
+export class PaginationComponent {
+  @Output() changePageEmit: EventEmitter<any> = new EventEmitter();
+  @Input('page') page!: IPageInfo;
   @ViewChild('eyeSvgLeft', { read: ElementRef }) eyeSvgLeft!: ElementRef<SVGElement>;
   @ViewChild('eyeSvgRight', { read: ElementRef }) eyeSvgRight!: ElementRef<SVGGraphicsElement>;
 
@@ -16,6 +19,9 @@ export class NotFoundComponent {
     this.eyesMoves({ mouseEvent: e, svg: this.eyeSvgLeft })
     this.eyesMoves({ mouseEvent: e, svg: this.eyeSvgRight })
   }
+
+  current: number = 1;
+
 
   eyesMoves({ mouseEvent, svg }: { mouseEvent: MouseEvent, svg: ElementRef }) {
     let eyeball = svg.nativeElement.querySelector('.eyeball');
@@ -74,5 +80,14 @@ export class NotFoundComponent {
   updatePupils(pupil: any, pointerMoved: any) {
     pupil!.setAttribute('cx', `${pointerMoved.x}`)
     pupil!.setAttribute('cy', `${pointerMoved.y}`)
+  }
+
+  changePage(page: string) {
+    const numberPattern = /\d+/g;
+    let props = page.split('?')[1]
+
+    this.current = Number(props.match(numberPattern)![0])
+
+    return this.changePageEmit.emit({ page: props })
   }
 }

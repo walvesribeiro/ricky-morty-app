@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ContainerModule } from '../../container/container.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginationModule } from '../../pagination/pagination.module';
+import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    ContainerModule
+    ContainerModule,
+    PaginationModule
   ]
 })
 export class HomeModule { }

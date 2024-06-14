@@ -1,0 +1,50 @@
+<div class="pagination-div">
+    <ul class="pagination">
+        <li>
+            <button [disabled]="!page.prev" class="seeds_button seeds_button--left" type="button"
+                (click)="changePage(page.prev)"></button>
+        </li>
+        <li class="current">
+            <ng-container [ngTemplateOutlet]="mortyHead"></ng-container>
+            <span class="current--range">
+                {{current}} / {{page.pages}}
+            </span>
+        </li>
+        <li>
+            <button [disabled]="!page.next" type="button" class="seeds_button seeds_button--right"
+                (click)="changePage(page.next)">
+            </button>
+        </li>
+    </ul>
+</div>
+
+<ng-template #mortyHead>
+    <div class="container">
+        <div class="morty" #morty>
+            <div class="morty__outer-head">
+                <div class="morty__hair"></div>
+                <div class="morty__ear left"></div>
+                <div class="morty__ear right"></div>
+                <div class="morty__head"></div>
+                <div #eyeL class="morty__eye left">
+                    <svg id="svg" #eyeSvgLeft xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <g class="eye" #eyeGrupoLeft>
+                            <circle class="eyeball left" cx="50" cy="50" r="50" fill="none" stroke="#000" />
+                            <circle class="pupil" cx="30" cy="50" r="5" fill="#000" />
+                        </g>
+                    </svg>
+                </div>
+                <div #eyeR class="morty__eye right">
+                    <svg id="svg" #eyeSvgRight xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <g class="eye" #eyeGrupoRight>
+                            <circle class="eyeball left" cx="50" cy="50" r="50" fill="none" stroke="#000" />
+                            <circle class="pupil" cx="30" cy="50" r="5" fill="#000" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="morty__nose"></div>
+                <div class="morty__mouth"></div>
+            </div>
+        </div>
+    </div>
+</ng-template>
