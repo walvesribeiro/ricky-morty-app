@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
+  pull_request: 
+    branches: [ "main" ]
 
 env:
   docker_image_name: walvesribeiro/ricky-morty-app:${{github.run_number}}
@@ -46,9 +48,14 @@ jobs:
 
     - name: Instalando as Dependencias
       run: npm install
+
+    - name: Build Angular App
+      run: npm run build:prod
   
-    - name: Build e Deploy para GitHub Pages
-      uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
+    - name: Deploy para GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v4
       with:
-        path: dist/${{ github.event.repository.name }}/browser
-        build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/
+        target_branch: gh-pages
+        build_dir: dist/${{ github.event.repository.name }}/
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
