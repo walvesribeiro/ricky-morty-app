@@ -1,8 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ICharacter } from '../../character.interface';
-import { FavoriteFacade } from '../../favorite.facade';
 import { Router } from '@angular/router';
+import { FavoriteFacade } from '@facades/favorite.facade';
+import { ICharacter } from '@interfaces/character.interface';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-favorite',

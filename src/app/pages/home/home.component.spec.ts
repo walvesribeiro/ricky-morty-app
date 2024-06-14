@@ -4,9 +4,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule, Store } from '@ngxs/store';
 import { CharactersFacade } from '../../character.facade';
-import { CharactersService } from '../../characters.service';
 import { ContainerModule } from '../../container/container.module';
 import { PaginationModule } from '../../pagination/pagination.module';
+import { CharactersService } from '../../shared/services/characters.service';
 import { HomeComponent } from './home.component';
 
 

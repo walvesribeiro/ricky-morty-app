@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { IMenuOptions } from './header/header.component';
-import { FavoriteFacade } from './favorite.facade';
-import { Select } from '@ngxs/store';
-import { FavoritesState } from './store/favorites/favorites.state';
+import { IMenuOptions } from '@core/header/header.component';
+import { FavoriteFacade } from '@facades/favorite.facade';
 import { Observable } from 'rxjs';
 
 @Component({

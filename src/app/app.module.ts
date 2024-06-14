@@ -9,11 +9,11 @@ import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment.dev';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterModule } from './footer/footer.module';
-import { HeaderModule } from './header/header.module';
-import { CharactersState } from './store/characters/characters.state';
-import { FavoritesState } from './store/favorites/favorites.state';
-import { PaginationState } from './store/pagination/pagination.state';
+import { FooterModule } from './core/footer/footer.module';
+import { HeaderModule } from './core/header/header.module';
+import { CharactersState } from './shared/store/characters/characters.state';
+import { FavoritesState } from './shared/store/favorites/favorites.state';
+import { PaginationState } from './shared/store/pagination/pagination.state';
 
 @NgModule({
   declarations: [

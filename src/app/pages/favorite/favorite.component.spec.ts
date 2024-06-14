@@ -4,8 +4,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { ContainerModule } from '../../container/container.module';
-import { FavoriteFacade } from '../../favorite.facade';
-import { FavoritesService } from '../../favorites.service';
+import { FavoriteFacade } from '../../shared/facades/favorite.facade';
+import { FavoritesService } from '../../shared/services/favorites.service';
 import { FavoriteComponent } from './favorite.component';
 
 describe('FavoriteComponent', () => {
@@ -18,8 +18,8 @@ describe('FavoriteComponent', () => {
       imports: [HttpClientTestingModule, NgxsModule.forRoot(), ContainerModule, ReactiveFormsModule],
       providers: [FavoritesService, FavoriteFacade]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(FavoriteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

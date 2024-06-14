@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { IMenuOptions } from '@core/header/header.component';
+import { HeaderModule } from '@core/header/header.module';
 import { NgxsModule, Store } from '@ngxs/store';
+import { FavoritesState } from '@store/favorites/favorites.state';
 import { of } from 'rxjs';
 import { AppComponent } from './app.component';
-import { IMenuOptions } from './header/header.component';
-import { HeaderModule } from './header/header.module';
-import { FavoritesState } from './store/favorites/favorites.state';
 
 describe('AppComponent', () => {
   beforeEach(async () => {

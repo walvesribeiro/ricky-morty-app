@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { CharactersFacade } from '../../character.facade';
+import { CharactersFacade } from '@facades/character.facade';
 
 export interface ItemPagination {
   page: string, current: number
