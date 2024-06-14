@@ -31,13 +31,8 @@ export class HomeComponent implements OnInit {
   }
 
 
-  changePage(page: string) {
-    const numberPattern = /\d+/g;
-    let props = page.split('?')[1]
-
-    this.current = Number(props.match(numberPattern)![0])
-
-    return this.facadeService.getAllCharactersPerPage(props)
+  changePage({ page }: { page: string }) {
+    return this.facadeService.getAllCharactersPerPage(page)
   }
 
 }

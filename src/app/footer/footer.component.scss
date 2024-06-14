@@ -1,0 +1,13 @@
+footer {
+    margin-block-start: 10.6vh;
+    position: sticky;
+    top: 100vh;
+    background-color: var(--color-core-foreground);
+    display: flex;
+    height: var(--measure-sizing-huge);
+    padding-inline: var(--measure-spacing-l);
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-core-border, #3D3D3D);
+    color: var(--color-neutral-content-higher);
+}

@@ -1,16 +1,18 @@
 <div class="pagination-div">
     <ul class="pagination">
-        <li *ngIf="page.prev">
-            <button class="seeds_button seeds_button--left" type="button" (click)="changePage(page.prev)">«</button>
-        </li>
         <li>
+            <button [disabled]="!page.prev" class="seeds_button seeds_button--left" type="button"
+                (click)="changePage(page.prev)"></button>
+        </li>
+        <li class="current">
             <ng-container [ngTemplateOutlet]="mortyHead"></ng-container>
-            <span class="btn btn-small">
+            <span class="current--range">
                 {{current}} / {{page.pages}}
             </span>
         </li>
-        <li *ngIf="page.next">
-            <button type="button" class="seeds_button seeds_button--right" (click)="changePage(page.next)">
+        <li>
+            <button [disabled]="!page.next" type="button" class="seeds_button seeds_button--right"
+                (click)="changePage(page.next)">
             </button>
         </li>
     </ul>
