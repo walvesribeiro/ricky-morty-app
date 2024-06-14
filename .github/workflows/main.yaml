@@ -51,10 +51,7 @@ jobs:
 
     - name: Build Angular App
       run: npm run build:prod
-    
-    - name: Corrigindo arquivos
-      run: mv dist/${{ github.event.repository.name }}/index.html dist/${{ github.event.repository.name }}/404.html
-  
+     
     - name: Deploy para GitHub Pages
       uses: crazy-max/ghaction-github-pages@v4
       with:
