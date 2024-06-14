@@ -207,3 +207,33 @@
         }
     }
 }
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 100px;
+    justify-content: center;
+    padding-inline: 0px;
+
+    li {
+        list-style: none;
+    }
+}
+
+.seeds_button {
+    width: 80px;
+    height: 100px;
+    background: url('/assets/images/Defense_Mega_Seed.svg') no-repeat;
+    appearance: unset;
+    border: none;
+    
+    &--right{
+        filter: drop-shadow(1px -5px 0px black);
+        rotate: 45deg;
+        }
+    &--left{
+        filter: drop-shadow(1px -5px 0px black);
+        rotate: -45deg;
+    }
+}

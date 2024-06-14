@@ -14,22 +14,7 @@
         </div>
     </div>
 
-    <div pagination *ngIf="!(onError$ | async) && (pagination$ | async) as page">
-        <!-- {{page | json}} -->
-        <div class="pagination-div">
-            <ul class="pagination">
-                <li *ngIf="page.prev">
-                    <button class="btn" type="button" (click)="changePage(page.prev, page.pages)">«</button>
-                </li>
-                <li>
-                    <span class="btn btn-small">
-                        {{current}} / {{page.pages}}
-                    </span>
-                </li>
-                <li *ngIf="page.next">
-                    <button type="button" class="btn" (click)="changePage(page.next, page.pages)">»</button>
-                </li>
-            </ul>
-        </div>
+    <div pagination *ngIf="!(onError$ | async) && (pagination$ | async) as pageInfo">
+        <app-pagination pagination [page]="pageInfo" (changePageEmit)="changePage($event)" />
     </div>
 </app-container>

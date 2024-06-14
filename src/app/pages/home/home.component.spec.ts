@@ -6,6 +6,7 @@ import { NgxsModule, Store } from '@ngxs/store';
 import { CharactersFacade } from '../../character.facade';
 import { CharactersService } from '../../characters.service';
 import { ContainerModule } from '../../container/container.module';
+import { PaginationModule } from '../../pagination/pagination.module';
 import { HomeComponent } from './home.component';
 
 
@@ -19,7 +20,7 @@ describe('component: HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      imports: [HttpClientTestingModule, NgxsModule.forRoot(), ContainerModule, ReactiveFormsModule],
+      imports: [HttpClientTestingModule, NgxsModule.forRoot(), ContainerModule, ReactiveFormsModule, PaginationModule],
       providers: [CharactersService, CharactersFacade]
     })
       .compileComponents();
